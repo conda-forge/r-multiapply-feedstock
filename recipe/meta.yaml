@@ -1,4 +1,4 @@
-{% set version = '2.1.1' %}
+{% set version = "2.1.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/multiApply_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/multiApply/multiApply_{{ version }}.tar.gz
-  sha256: 90da358d72f98d2efb89e894e1d9dc95c8f8efa75a1cd5555ab5c6c93fb653ef
+  sha256: 97b22c9aaabaf9d57055a66667185b33cac3c85a73d078e960db7dc7ad8b6209
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -42,23 +42,13 @@ test:
 about:
   home: https://earth.bsc.es/gitlab/ces/multiApply
   license: LGPL-3.0-only
-  summary: The base apply function and its variants, as well as the related functions in the
-    'plyr' package, typically apply user-defined functions to a single argument (or
-    a list of vectorized arguments in the case of mapply). The 'multiApply' package
-    extends this paradigm with its only function, Apply, which efficiently applies functions
-    taking one or a list of multiple unidimensional or multidimensional arrays (or combinations
-    thereof) as input. The input arrays can have different numbers of dimensions as
-    well as different dimension lengths, and the applied function can return one or
-    a list of unidimensional or multidimensional arrays as output. This saves development
-    time by preventing the R user from writing often error-prone and memory-inefficient
-    loops dealing with multiple complex arrays. Also, a remarkable feature of Apply
-    is the transparent use of multi-core through its parameter 'ncores'. In contrast
-    to the base apply function, this package suggests the use of 'target dimensions'
-    as opposite to the 'margins' for specifying the dimensions relevant to the function
-    to be applied.
+  summary: The base apply function and its variants, as well as the related functions in the 'plyr' package, typically apply user-defined functions to a single argument (or a list of vectorized arguments in the case of mapply). The 'multiApply' package extends this paradigm with its only function, Apply, which efficiently
+    applies functions taking one or a list of multiple unidimensional or multidimensional arrays (or combinations thereof) as input. The input arrays can have different numbers of dimensions as well as different dimension lengths, and the applied function can return one or a list of unidimensional or multidimensional arrays
+    as output. This saves development time by preventing the R user from writing often error-prone and memory-inefficient loops dealing with multiple complex arrays. Also, a remarkable feature of Apply is the transparent use of multi-core through its parameter 'ncores'. In contrast to the base apply function, this package
+    suggests the use of 'target dimensions' as opposite to the 'margins' for specifying the dimensions relevant to the function to be applied.
   license_family: LGPL
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/LGPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/LGPL-3
 
 extra:
   recipe-maintainers:
